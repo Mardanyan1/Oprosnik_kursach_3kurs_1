@@ -1,0 +1,11 @@
+#navigation {
+    position: sticky;
+    top: 0;
+    background: #e8e8e8;
+    margin: 10px auto 10px;
+    border-radius: 20px;
+    width: 90%;
+    height: 25%;
+    box-shadow: 5px 5px 3px 1px;
+    z-index: 1000;
+}
