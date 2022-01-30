@@ -46,7 +46,7 @@ public class Blog_Controller
     }*/
 
 
-//////////////////////////////////////////////
+//////////////////////////////////////////////добавление вопроса
     @GetMapping("/blog/add")//добавление вопроса
     public String oprosAdd(Model model)
     {
@@ -78,7 +78,7 @@ public class Blog_Controller
     }
 
 
-//////////////////////////////////////////////
+//////////////////////////////////////////////редактирование вопросов
 
     @GetMapping("/blog/{id}/edit")//раздел редактирования
     public String blogEdit(@PathVariable(value = "id") long id, Model model)
@@ -113,7 +113,7 @@ public class Blog_Controller
         return "redirect:/blog";
     }
 
-///////////////////////////////////////
+///////////////////////////////////////вывод ответов
 
     @GetMapping("/answers")//раздел ответов, где просто выводятся  ответы
     public String oprosAnswer(Model model)
@@ -124,26 +124,16 @@ public class Blog_Controller
     }
 
 
-    /*@PostMapping("/answers")
-    public String oprosAnswerSave(@RequestParam String answer)
-    {
 
-        Opros opros =new Opros(answer);
-        oprosReopsitory.save(opros);
-        return "answers";
-    }*/
+////////////////////////////////////////
 
 
-    //////////////////////////////////////////////
-
-//здесь начинается хрень для записи ответов на вопросы(Жек, я тупо скопировал какие-то два метода сверху, чтобы по их образу как-то сделать)
-
-    /*@GetMapping("/blog/{id}/edit")//раздел редактирования
+    @GetMapping("/question/{id}")//раздел ответа
     public String questionAsk(@PathVariable(value = "id") long id, Model model)
     {
         if(!oprosReopsitory.existsById(id))
         {
-            return "redirect:/blog";
+            return "redirect:/main";
         }
         Optional<Opros> opros = oprosReopsitory.findById(id);
         ArrayList<Opros> res = new ArrayList<>();
@@ -152,14 +142,12 @@ public class Blog_Controller
         return "question";
     }
 
-    @PostMapping("/blog/{id}/edit")//раздел редактирования, где происходит само редактирование
-    public String questionAskSave(@PathVariable(value = "id") long id, @RequestParam String question, @RequestParam String question_text)
+    @PostMapping("/question/{id}")//раздел ответа, где пишешь ответ
+    public String questionAskSave(@PathVariable(value = "id") long id, @RequestParam String answer)
     {
         Opros opros = oprosReopsitory.findById(id).orElseThrow();
-        opros.setQuestion(question);
-        opros.setQuestion_text(question_text);
+        opros.setAnswer(answer);
         oprosReopsitory.save(opros);
-        return "question";
-    }*/
-
+        return "redirect:/";
+    }
 }

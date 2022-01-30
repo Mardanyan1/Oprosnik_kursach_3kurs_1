@@ -7,14 +7,13 @@
     </head>
     <body>
         <header th:insert="blocks/header.html"></header>
-
         <div class="container mt=5" size="50">
             <h1>Редактирование</h1>
             <div th:each="el:${oproses}">
                 <form method="post">
-                    <input type="text" th:value="${el.question}" name="question" placeholder="Name" class="form-control"><br>
-                    <input type="text" th:value="${el.question_text}" name="question_text" placeholder="Anons" class="form-control"><br>
-                    <button type="submit" class="btn btn-success">Обновить</button>
+                    <input type="text" th:value="${el.question}" name="question" placeholder="короткий вопрос" class="form-control"><br>
+                    <input type="text" th:value="${el.question_text}" name="question_text" placeholder="развернутый вопрос" class="form-control"><br>
+                    <button type="submit" class="btn btn-primary">Обновить</button>
                 </form>
             </div>
         </div>

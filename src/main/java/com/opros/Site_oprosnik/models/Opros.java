@@ -14,6 +14,7 @@ public class Opros
     private String question_text;
     private String answer;
 
+
     public Long getId()
     {
         return id;
@@ -23,6 +24,7 @@ public class Opros
     {
         this.id=id;
     }
+
 
     public String getQuestion()
     {
@@ -34,6 +36,7 @@ public class Opros
         this.question=question;
     }
 
+
     public String getQuestion_text()
     {
         return question_text;
@@ -43,6 +46,7 @@ public class Opros
     {
         this.question_text=question_text;
     }
+
 
     public String getAnswer()
     {
